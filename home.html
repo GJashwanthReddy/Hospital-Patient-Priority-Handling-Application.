@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Patient Priority System - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Hospital Logo">
+            <h2>PriorityCare</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="register.html"><i class="fas fa-user-plus"></i> Register Patient</a></li>
+            <li><a href="patients.html"><i class="fas fa-list-ul"></i> Patient List</a></li>
+            <li><a href="serve.html"><i class="fas fa-stethoscope"></i> Serve Patient</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>Hospital Patient Priority Handling Application</h1>
+            <p>
+                A smart, efficient system that manages hospital patients based on clinical priority levels.
+                Ensuring that critical cases are attended to immediately, while appropriately scheduling those
+                with lower acuity.
+            </p>
+
+            <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap;">
+                <span class="priority-badge priority-critical">Critical (Level 1)</span>
+                <span class="priority-badge priority-high">High (Level 2)</span>
+                <span class="priority-badge priority-moderate">Moderate (Level 3)</span>
+                <span class="priority-badge priority-mild">Mild (Level 4)</span>
+                <span class="priority-badge priority-low">Low (Level 5)</span>
+            </div>
+
+            <a href="register.html" class="hero-btn">Register Patients <i class="fas fa-arrow-right"></i></a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 PriorityCare Hospital Management System. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
