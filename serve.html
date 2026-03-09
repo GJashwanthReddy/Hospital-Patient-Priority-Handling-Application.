@@ -2,59 +2,118 @@
 <html lang="en">
 
 <head>
+
+    <!-- CO1 – HTML document structure -->
     <meta charset="UTF-8">
+
+    <!-- CO1 – Responsive design meta tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Serve Patient - PriorityCare</title>
+
+    <!-- CO1 – CSS integration -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- CO5 – External icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 
 <body>
 
+    <!-- CO2 – Semantic navigation layout -->
     <nav class="navbar">
+
         <div class="logo-container">
+
+            <!-- CO1 – Image usage -->
             <img src="images/logo.png" alt="Hospital Logo">
+
             <h2>PriorityCare System</h2>
+
         </div>
+
         <ul class="nav-links">
+
+            <!-- CO5 – Multi-page navigation -->
             <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="register.html"><i class="fas fa-user-plus"></i> Register Patient</a></li>
             <li><a href="patients.html"><i class="fas fa-list-ul"></i> Patient List</a></li>
             <li><a href="serve.html" class="active"><i class="fas fa-stethoscope"></i> Serve Patient</a></li>
+
         </ul>
+
     </nav>
 
     <main>
+
+        <!-- CO2 – Layout container -->
         <div class="card-container">
+
+            <!-- CO1 – Heading element -->
             <h2 class="card-title"><i class="fas fa-user-md"></i> Medical Staff Console</h2>
 
             <div style="text-align: center; margin-bottom: 30px;">
+
+                <!-- CO4 – DOM element dynamically updated by JavaScript -->
                 <p style="font-size: 1.2rem; margin-bottom: 15px;">
-                    Currently <strong id="queueCount" style="color: var(--primary-color); font-size: 1.5rem;">0</strong>
+                    Currently
+                    <strong id="queueCount" style="color: var(--primary-color); font-size: 1.5rem;">0</strong>
                     patient(s) waiting in the queue.
                 </p>
 
+                <!-- CO4 – Button triggers JavaScript function -->
                 <button id="serveBtn" class="btn btn-serve" onclick="serveNextPatient()">
+
                     <i class="fas fa-concierge-bell"></i> Call Next Patient Room
+
                 </button>
+
             </div>
 
+            <!-- CO4 – Dynamic content displayed after JavaScript execution -->
             <!-- This section will be revealed when a patient is served -->
             <div id="servedInfo" class="served-info">
+
                 <h3><i class="fas fa-user-check"></i> Currently Serving</h3>
+
                 <div id="servedDetails">
-                    <!-- Details populated by js -->
+
+                    <!-- Patient data populated dynamically by script.js -->
+
                 </div>
+
             </div>
 
         </div>
+
     </main>
 
+    <!-- CO2 – Footer layout -->
     <footer>
         <p>&copy; 2026 PriorityCare Hospital Management System. All rights reserved.</p>
     </footer>
 
+    <!-- CO4 – JavaScript used for DOM interaction -->
     <script src="js/script.js"></script>
+
 </body>
 
 </html>
+
+<!--
+---------------------------------
+FWD CO ATTAINMENT SUMMARY
+---------------------------------
+
+Attained COs:
+CO1 – HTML structure and CSS integration
+CO2 – Semantic layout and page structure
+CO4 – JavaScript DOM interaction
+CO5 – Multi-page web navigation
+
+Not Attained COs:
+CO3 – JavaScript programming fundamentals are implemented in script.js
+
+---------------------------------
+-->

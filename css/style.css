@@ -1,4 +1,4 @@
-/* Variables for consistent theming */
+/* CO1 – CSS Variables used for consistent theming */
 :root {
   --primary-color: #05657f;
   --secondary-color: #39e6e3;
@@ -11,13 +11,14 @@
   --transition: all 0.3s ease;
 }
 
-/* Base Styles */
+/* CO1 – Base styling using universal selector */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* CO1 – Typography and page styling */
 body {
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   background: var(--bg-gradient);
@@ -27,7 +28,7 @@ body {
   flex-direction: column;
 }
 
-/* Navbar container */
+/* CO2 – Flexbox layout for navigation bar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -40,31 +41,39 @@ body {
   z-index: 1000;
 }
 
+/* CO2 – Layout styling using flexbox */
 .logo-container {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
+
+/* CO1 – Image styling */
 .logo-container img {
   height: 50px;
   width: auto;
   border-radius: 8px;
-  /* Optional, depending on logo style */
 }
 
+
+/* CO1 – Text styling */
 .logo-container h2 {
   font-size: 1.5rem;
   color: var(--primary-color);
   font-weight: 700;
 }
 
+
+/* CO2 – Navigation menu layout */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
 }
 
+
+/* CO1 – Link styling */
 .nav-links li a {
   text-decoration: none;
   color: var(--text-dark);
@@ -75,13 +84,16 @@ body {
   transition: var(--transition);
 }
 
+
+/* CO1 – Hover styling */
 .nav-links li a:hover,
 .nav-links li a.active {
   background: var(--primary-color);
   color: var(--text-light);
 }
 
-/* Main Container */
+
+/* CO2 – Main layout container */
 main {
   flex: 1;
   padding: 40px 5%;
@@ -90,7 +102,8 @@ main {
   width: 100%;
 }
 
-/* Hero Section */
+
+/* CO2 – Hero section layout */
 .hero {
   text-align: center;
   padding: 60px 20px;
@@ -100,12 +113,16 @@ main {
   margin-top: 20px;
 }
 
+
+/* CO1 – Heading styling */
 .hero h1 {
   font-size: 2.5rem;
   color: var(--primary-color);
   margin-bottom: 20px;
 }
 
+
+/* CO1 – Paragraph styling */
 .hero p {
   font-size: 1.2rem;
   color: #555;
@@ -115,6 +132,8 @@ main {
   line-height: 1.6;
 }
 
+
+/* CO1 – Button styling */
 .hero-btn {
   display: inline-block;
   background: var(--primary-color);
@@ -128,13 +147,15 @@ main {
   box-shadow: 0 4px 6px rgba(5, 101, 127, 0.3);
 }
 
+
 .hero-btn:hover {
   background: #044d61;
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(5, 101, 127, 0.4);
 }
 
-/* Cards Form/Table Container */
+
+/* CO2 – Card container layout */
 .card-container {
   background: var(--card-bg);
   border-radius: var(--border-radius);
@@ -144,6 +165,8 @@ main {
   margin: 0 auto;
 }
 
+
+/* CO1 – Card title styling */
 .card-title {
   text-align: center;
   color: var(--primary-color);
@@ -153,11 +176,14 @@ main {
   padding-bottom: 10px;
 }
 
-/* Form Styles */
+
+/* CO1 – Form spacing */
 .form-group {
   margin-bottom: 20px;
 }
 
+
+/* CO1 – Label styling */
 .form-group label {
   display: block;
   font-weight: 600;
@@ -165,6 +191,8 @@ main {
   color: var(--text-dark);
 }
 
+
+/* CO1 – Input styling */
 .form-group input,
 .form-group select {
   width: 100%;
@@ -175,6 +203,8 @@ main {
   transition: var(--transition);
 }
 
+
+/* CO1 – Input focus effect */
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
@@ -182,7 +212,8 @@ main {
   box-shadow: 0 0 5px rgba(5, 101, 127, 0.3);
 }
 
-/* Buttons */
+
+/* CO1 – Button styling */
 .btn {
   width: 100%;
   padding: 12px;
@@ -197,30 +228,37 @@ main {
   margin-top: 10px;
 }
 
+
 .btn:hover {
   background: #044d61;
 }
 
+
+/* CO1 – Special button styling */
 .btn-serve {
   background: #e74c3c;
   font-size: 1.2rem;
   padding: 15px;
 }
 
+
 .btn-serve:hover {
   background: #c0392b;
 }
 
-/* Table Styles */
+
+/* CO2 – Table layout styling */
 .table-responsive {
   overflow-x: auto;
 }
+
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
 }
+
 
 table th,
 table td {
@@ -229,22 +267,28 @@ table td {
   border-bottom: 1px solid #eee;
 }
 
+
+/* CO1 – Table header styling */
 table th {
   background-color: var(--primary-color);
   color: white;
   font-weight: 600;
 }
 
+
+/* CO2 – Row hover effect */
 table tbody tr {
   transition: var(--transition);
 }
+
 
 table tbody tr:hover {
   background-color: #f5fbfc;
   transform: scale(1.01);
 }
 
-/* Priority Badges */
+
+/* CO1 – Badge styling */
 .priority-badge {
   padding: 5px 10px;
   border-radius: 20px;
@@ -254,34 +298,31 @@ table tbody tr:hover {
   color: white;
 }
 
+
+/* Priority colors */
 .priority-critical {
   background-color: #e74c3c;
 }
 
-/* Red */
 .priority-high {
   background-color: #e67e22;
 }
 
-/* Orange */
 .priority-moderate {
   background-color: #f1c40f;
   color: #333;
 }
 
-/* Yellow */
 .priority-mild {
   background-color: #3498db;
 }
 
-/* Blue */
 .priority-low {
   background-color: #2ecc71;
 }
 
-/* Green */
 
-/* Served Patient Display */
+/* CO2 – Served patient display layout */
 .served-info {
   margin-top: 30px;
   padding: 20px;
@@ -289,20 +330,22 @@ table tbody tr:hover {
   border-left: 5px solid var(--primary-color);
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
   display: none;
-  /* Hidden by default till served */
 }
+
 
 .served-info h3 {
   color: var(--primary-color);
   margin-bottom: 15px;
 }
 
+
 .served-info p {
   font-size: 1.1rem;
   margin-bottom: 8px;
 }
 
-/* Footer */
+
+/* CO1 – Footer styling */
 footer {
   text-align: center;
   padding: 20px;
@@ -312,8 +355,10 @@ footer {
   border-top: 1px solid #eee;
 }
 
-/* Responsive */
+
+/* CO2 – Responsive design using media query */
 @media (max-width: 768px) {
+
   .navbar {
     flex-direction: column;
     gap: 15px;
@@ -327,4 +372,23 @@ footer {
   .hero h1 {
     font-size: 2rem;
   }
+
 }
+
+
+/*
+---------------------------------
+FWD CO ATTAINMENT SUMMARY
+---------------------------------
+
+Attained COs:
+CO1 – Introductory CSS styling
+CO2 – Layout design and responsive design
+
+Not Attained COs:
+CO3 – JavaScript concepts implemented in script.js
+CO4 – DOM manipulation implemented in script.js
+CO5 – Advanced web features implemented in JS + HTML
+
+---------------------------------
+*/

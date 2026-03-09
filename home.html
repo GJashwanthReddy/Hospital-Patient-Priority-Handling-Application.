@@ -2,38 +2,66 @@
 <html lang="en">
 
 <head>
+
+    <!-- CO1 – HTML Document Structure -->
     <meta charset="UTF-8">
+
+    <!-- CO1 – Responsive web design meta tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Hospital Patient Priority System - Home</title>
+
+    <!-- CO1 – CSS integration for styling -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- FontAwesome for Icons -->
+
+    <!-- CO5 – External library integration -->
+    <!-- FontAwesome icons used for UI enhancement -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 
 <body>
 
+    <!-- CO2 – Semantic navigation layout -->
     <nav class="navbar">
+
         <div class="logo-container">
+
+            <!-- CO1 – Image usage in HTML -->
             <img src="images/logo.png" alt="Hospital Logo">
+
             <h2>PriorityCare</h2>
+
         </div>
+
         <ul class="nav-links">
+
+            <!-- CO5 – Multi-page navigation -->
             <li><a href="home.html" class="active"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="register.html"><i class="fas fa-user-plus"></i> Register Patient</a></li>
             <li><a href="patients.html"><i class="fas fa-list-ul"></i> Patient List</a></li>
             <li><a href="serve.html"><i class="fas fa-stethoscope"></i> Serve Patient</a></li>
+
         </ul>
+
     </nav>
 
     <main>
+
+        <!-- CO2 – Structured content section -->
         <section class="hero">
+
+            <!-- CO1 – Heading element -->
             <h1>Hospital Patient Priority Handling Application</h1>
+
+            <!-- CO1 – Paragraph content -->
             <p>
                 A smart, efficient system that manages hospital patients based on clinical priority levels.
                 Ensuring that critical cases are attended to immediately, while appropriately scheduling those
                 with lower acuity.
             </p>
 
+            <!-- CO2 – Layout styling using flexbox and badges -->
             <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap;">
                 <span class="priority-badge priority-critical">Critical (Level 1)</span>
                 <span class="priority-badge priority-high">High (Level 2)</span>
@@ -42,10 +70,16 @@
                 <span class="priority-badge priority-low">Low (Level 5)</span>
             </div>
 
-            <a href="register.html" class="hero-btn">Register Patients <i class="fas fa-arrow-right"></i></a>
+            <!-- CO5 – Navigation link to another page -->
+            <a href="register.html" class="hero-btn">
+                Register Patients <i class="fas fa-arrow-right"></i>
+            </a>
+
         </section>
+
     </main>
 
+    <!-- CO2 – Footer layout -->
     <footer>
         <p>&copy; 2026 PriorityCare Hospital Management System. All rights reserved.</p>
     </footer>
@@ -53,3 +87,19 @@
 </body>
 
 </html>
+
+<!--
+---------------------------------
+FWD CO ATTAINMENT SUMMARY
+---------------------------------
+
+Attained COs:
+CO1 – HTML document structure and CSS linking
+CO2 – Semantic HTML layout and structured content
+CO5 – Multi-page navigation and UI enhancement
+
+Not Attained COs:
+None
+
+---------------------------------
+-->

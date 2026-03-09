@@ -2,75 +2,142 @@
 <html lang="en">
 
 <head>
+
+    <!-- CO1 – HTML document structure -->
     <meta charset="UTF-8">
+
+    <!-- CO1 – Responsive design meta tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Register Patient - PriorityCare</title>
+
+    <!-- CO1 – CSS integration for styling -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- CO5 – External icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 
 <body>
 
+    <!-- CO2 – Semantic navigation layout -->
     <nav class="navbar">
+
         <div class="logo-container">
+
+            <!-- CO1 – Image usage in HTML -->
             <img src="images/logo.png" alt="Hospital Logo">
+
             <h2>PriorityCare System</h2>
+
         </div>
+
         <ul class="nav-links">
+
+            <!-- CO5 – Multi-page navigation -->
             <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="register.html" class="active"><i class="fas fa-user-plus"></i> Register Patient</a></li>
             <li><a href="patients.html"><i class="fas fa-list-ul"></i> Patient List</a></li>
             <li><a href="serve.html"><i class="fas fa-stethoscope"></i> Serve Patient</a></li>
+
         </ul>
+
     </nav>
 
     <main>
+
         <div class="card-container">
+
+            <!-- CO1 – Heading element -->
             <h2 class="card-title"><i class="fas fa-user-plus"></i> Patient Registration</h2>
 
+            <!-- CO2 – HTML Form Implementation -->
             <form id="patientForm">
+
                 <div class="form-group">
+
+                    <!-- CO2 – Form label and input field -->
                     <label for="patientId">Patient ID</label>
                     <input type="number" id="patientId" placeholder="e.g., 1001" required>
+
                 </div>
 
                 <div class="form-group">
+
                     <label for="name">Full Name</label>
                     <input type="text" id="name" placeholder="John Doe" required>
+
                 </div>
 
                 <div class="form-group">
+
                     <label for="age">Age</label>
                     <input type="number" id="age" placeholder="e.g., 45" required>
+
                 </div>
 
                 <div class="form-group">
+
                     <label for="symptoms">Symptoms</label>
                     <input type="text" id="symptoms" placeholder="Brief description of symptoms" required>
+
                 </div>
 
                 <div class="form-group">
+
+                    <!-- CO2 – Select dropdown for user input -->
                     <label for="priority">Priority Level</label>
+
                     <select id="priority" required>
+
                         <option value="">-- Select Priority --</option>
                         <option value="Critical">Critical (Immediate life-saving needed)</option>
                         <option value="High">High (Urgent but not immediately life-threatening)</option>
                         <option value="Moderate">Moderate (Needs attention soon)</option>
                         <option value="Mild">Mild (Non-urgent symptoms)</option>
                         <option value="Low">Low (Routine checkup or minor issue)</option>
+
                     </select>
+
                 </div>
 
-                <button type="submit" class="btn"><i class="fas fa-save"></i> Register Patient</button>
+                <!-- CO4 – Button triggers JavaScript form event -->
+                <button type="submit" class="btn">
+                    <i class="fas fa-save"></i> Register Patient
+                </button>
+
             </form>
+
         </div>
+
     </main>
 
+    <!-- CO2 – Footer layout -->
     <footer>
         <p>&copy; 2026 PriorityCare Hospital Management System. All rights reserved.</p>
     </footer>
 
+    <!-- CO4 – JavaScript used for form submission and DOM interaction -->
     <script src="js/script.js"></script>
+
 </body>
 
 </html>
+
+<!--
+---------------------------------
+FWD CO ATTAINMENT SUMMARY
+---------------------------------
+
+Attained COs:
+CO1 – HTML structure and CSS integration
+CO2 – HTML forms and input handling
+CO4 – JavaScript DOM interaction
+CO5 – Multi-page web navigation
+
+Not Attained COs:
+CO3 – JavaScript programming fundamentals are implemented in script.js
+
+---------------------------------
+-->

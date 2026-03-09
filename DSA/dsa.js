@@ -1,18 +1,13 @@
-/**
- * Hospital Patient Priority Handling Application - DSA Demonstration
- * Concepts covered: Class structure, Array, Sorting, Queue (FIFO), Linear Search
- * 
- * Note: This class uses LocalStorage to ensure data persists across multiple
- * HTML pages (home.html, register.html, patients.html, serve.html).
- */
-
 class PatientQueue {
+
     constructor() {
-        // 1. Array / List Implementation
-        // Used to store patient records. We fetch from localStorage if data exists.
+
+        // CO2 – Abstract Data Type using Arrays
+        // Topic: Array used to store patient records
+        // Operation: Initialization of patient storage
         this.patients = JSON.parse(localStorage.getItem('hospital_patients_queue')) || [];
-        
-        // Priority map for use in sorting
+
+        // Priority mapping used for sorting algorithm
         this.priorityMap = {
             "Critical": 1,
             "High": 2,
@@ -22,95 +17,125 @@ class PatientQueue {
         };
     }
 
-    // Helper method to sync array to localStorage for multi-page integration
+    // CO6 – Development of DS based application
+    // Topic: Integration of data structures with browser storage
     _saveData() {
         localStorage.setItem('hospital_patients_queue', JSON.stringify(this.patients));
     }
 
     /**
      * Integrates with Register Form
-     * @param {number} id 
-     * @param {string} name 
-     * @param {number} age 
-     * @param {string} symptoms 
-     * @param {string} priority 
      */
     addPatient(id, name, age, symptoms, priority) {
-        // Create an object and push to the array
+
         const newPatient = { id, name, age, symptoms, priority };
-        this.patients.push(newPatient); // Array Insertion
-        
+
+        // CO2 – Array ADT operation
+        // Topic: Insert operation using push()
+        this.patients.push(newPatient);
+
         this._saveData();
         console.log(`Patient added successfully: ID ${id} | Name: ${name}`);
     }
 
     /**
-     * 2. Priority Sorting Algorithm
-     * Sorts patients array using a custom mapping.
+     * Priority Sorting Algorithm
      */
+
+    // CO5 – Practical application of linear data structures
+    // Topic: Sorting algorithm used to arrange patients based on priority
     sortByPriority() {
-        // JavaScript's sort function uses an in-place algorithm calculation.
-        // We evaluate strings to numerical priority to arrange correctly.
+
         this.patients.sort((a, b) => {
             return this.priorityMap[a.priority] - this.priorityMap[b.priority];
         });
-        
+
         this._saveData();
         console.log("Queue has been successfully sorted by priority levels.");
-        return this.patients; // Returns sorted array to update UI tables
+
+        return this.patients;
     }
 
     /**
-     * 3. Queue Concept (Dequeue)
-     * Simulates dequeue behavior. 
-     * Ensures highest priority is served (FIFO relative to sorting).
+     * Queue Concept (Dequeue)
      */
+
+    // CO3 – Queue data structure implementation
+    // Topic: FIFO queue behavior
     servePatient() {
+
         if (this.patients.length === 0) {
             console.log("No patients in the queue to serve.");
             return null;
         }
 
-        // We sort before serving to ensure the highest priority is always in front (index 0)
+        // Sorting ensures highest priority patient is served first
         this.sortByPriority();
 
-        // Queue Operation: Dequeue
-        // shift() removes and returns the first element of an array
-        const servedPatient = this.patients.shift(); 
-        
+        // CO3 – Queue Dequeue Operation
+        // Topic: Removing first element using shift()
+        const servedPatient = this.patients.shift();
+
         this._saveData();
         console.log(`Now Serving -> [ID: ${servedPatient.id}] ${servedPatient.name}`);
-        return servedPatient; // Returning patient allows UI to display who is being served
+
+        return servedPatient;
     }
 
     /**
-     * 4. Searching Technique (Linear Search)
-     * Implements a standard linear search algorithm over the array.
-     * @param {number} searchId 
+     * Searching Technique (Linear Search)
      */
+
+    // CO2 – Array traversal and searching
+    // Topic: Linear search algorithm
     searchPatient(searchId) {
-        // Iterating through the array iteratively
+
         for (let i = 0; i < this.patients.length; i++) {
-            // Check if current element's ID matches the argument
+
             if (this.patients[i].id == searchId) {
+
                 console.log(`Search Hit: Found ${this.patients[i].name} with Priority ${this.patients[i].priority}`);
-                return this.patients[i]; // Return data to UI populate view
+
+                return this.patients[i];
             }
         }
-        
-        // Iteration complete without finding match
+
         console.log(`Search Miss: Patient with ID ${searchId} was not found in the system.`);
+
         return null;
     }
 
     /**
-     * Helper to get list of patients (e.g., to generate table rows)
+     * Helper to return patient list
      */
+
+    // CO6 – Development of DS application
+    // Topic: Integration with frontend UI for displaying data
     getPatients() {
         return this.patients;
     }
 }
 
-// Instantiate it globally so your HTML button onClick events and script.js can access it directly.
-// Example Usage in UI: hospitalData.addPatient(101, 'John', 40, 'Flu', 'Mild');
+
+// Global object accessible across the application
+// CO6 – Data structure based application development
 const hospitalData = new PatientQueue();
+
+
+/*
+-------------------------------------
+DSA CO ATTAINMENT SUMMARY
+-------------------------------------
+
+Attained COs:
+CO2 – Abstract Data Types using Arrays
+CO3 – Queue data structure
+CO5 – Linear Data Structure Application
+CO6 – Development of DS based program
+
+Not Attained COs:
+CO1 – Algorithm complexity analysis (Big-O)
+CO4 – Hash based data structures
+
+-------------------------------------
+*/

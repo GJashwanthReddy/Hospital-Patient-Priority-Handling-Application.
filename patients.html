@@ -2,35 +2,64 @@
 <html lang="en">
 
 <head>
+
+    <!-- CO1 – HTML document structure -->
     <meta charset="UTF-8">
+
+    <!-- CO1 – Responsive design meta tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Patient List - PriorityCare</title>
+
+    <!-- CO1 – CSS integration for styling -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- CO5 – External icon library integration -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 
 <body>
 
+    <!-- CO2 – Semantic navigation layout -->
     <nav class="navbar">
+
         <div class="logo-container">
+
+            <!-- CO1 – HTML image usage -->
             <img src="images/logo.png" alt="Hospital Logo">
+
             <h2>PriorityCare System</h2>
+
         </div>
+
         <ul class="nav-links">
+
+            <!-- CO5 – Multi-page navigation -->
             <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="register.html"><i class="fas fa-user-plus"></i> Register Patient</a></li>
             <li><a href="patients.html" class="active"><i class="fas fa-list-ul"></i> Patient List</a></li>
             <li><a href="serve.html"><i class="fas fa-stethoscope"></i> Serve Patient</a></li>
+
         </ul>
+
     </nav>
 
     <main>
+
+        <!-- CO2 – Layout container for table -->
         <div class="card-container" style="max-width: 1000px;">
+
+            <!-- CO1 – Heading element -->
             <h2 class="card-title"><i class="fas fa-list-ul"></i> Admission Queue</h2>
 
             <div class="table-responsive">
+
+                <!-- CO2 – HTML Table structure for displaying patient data -->
                 <table id="patientTable">
+
                     <thead>
+
                         <tr>
                             <th><i class="fas fa-hashtag"></i> ID</th>
                             <th><i class="fas fa-user-injured"></i> Name</th>
@@ -38,25 +67,56 @@
                             <th><i class="fas fa-notes-medical"></i> Symptoms</th>
                             <th><i class="fas fa-exclamation-triangle"></i> Priority</th>
                         </tr>
+
                     </thead>
+
                     <tbody>
-                        <!-- Rows populated by script.js -->
+
+                        <!-- CO4 – Table rows dynamically inserted using JavaScript -->
+                        <!-- Data populated by script.js -->
+
                     </tbody>
+
                 </table>
+
             </div>
 
+            <!-- CO5 – Navigation link for multi-page interaction -->
             <div style="margin-top: 20px; text-align: right;">
-                <a href="register.html" class="btn" style="width: auto; display: inline-block;">+ Add Another
-                    Patient</a>
+                <a href="register.html" class="btn" style="width: auto; display: inline-block;">
+                    + Add Another Patient
+                </a>
             </div>
+
         </div>
+
     </main>
 
+    <!-- CO2 – Footer layout -->
     <footer>
         <p>&copy; 2026 PriorityCare Hospital Management System. All rights reserved.</p>
     </footer>
 
+    <!-- CO4 – JavaScript DOM manipulation for dynamic table updates -->
     <script src="js/script.js"></script>
+
 </body>
 
 </html>
+
+<!--
+---------------------------------
+FWD CO ATTAINMENT SUMMARY
+---------------------------------
+
+Attained COs:
+CO1 – HTML structure and CSS integration
+CO2 – HTML tables and layout design
+CO4 – DOM manipulation using JavaScript
+CO5 – Multi-page web navigation
+
+Not Attained COs:
+CO3 – JavaScript programming fundamentals are implemented in script.js
+
+---------------------------------
+-->
