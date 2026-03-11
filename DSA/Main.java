@@ -182,4 +182,6 @@ CO1 – Algorithm Analysis, Searching and Sorting
 CO2 – Abstract Data Types (ADTs)
 CO3 – Stack / Queue Concepts
 CO4 – Java Collections
+
+COs Not Used: CO5, CO6
 */
