@@ -10,16 +10,17 @@ public class Main {
         boolean running = true;
 
         System.out.println("=================================================");
-        System.out.println("  Hospital Patient Priority Handling System");
+        System.out.println("  HOSPITAL PATIENT PRIORITY HANDLING SYSTEM");
         System.out.println("=================================================");
 
         while (running) {
             System.out.println("\nMenu Options:");
-            System.out.println("1. Register Patient");
-            System.out.println("2. View All Patients");
-            System.out.println("3. Serve Next Patient");
-            System.out.println("4. Search Patient by ID");
-            System.out.println("5. Exit");
+            System.out.println("1 Register Patient");
+            System.out.println("2 Display All Patients");
+            System.out.println("3 Search Patient by ID");
+            System.out.println("4 Serve Next Patient");
+            System.out.println("5 Delete Patient");
+            System.out.println("6 Exit");
             System.out.print("Enter your choice: ");
 
             String choiceStr = scanner.nextLine();
@@ -27,7 +28,7 @@ public class Main {
             try {
                 choice = Integer.parseInt(choiceStr);
             } catch (NumberFormatException e) {
-                // Invalid input gets handled by default case
+                // Ignore invalid format, default switch case will handle
             }
 
             switch (choice) {
@@ -35,31 +36,33 @@ public class Main {
                     registerPatient(scanner);
                     break;
                 case 2:
-                    viewAllPatients();
+                    displayPatients();
                     break;
                 case 3:
-                    serveNextPatient();
-                    break;
-                case 4:
                     searchPatientById(scanner);
                     break;
+                case 4:
+                    servePatient();
+                    break;
                 case 5:
-                    System.out.println("Exiting application. Goodbye!");
+                    deletePatient(scanner);
+                    break;
+                case 6:
+                    System.out.println("Exiting application.");
                     running = false;
                     break;
                 default:
-                    System.out.println("Invalid choice. Please enter a number between 1 and 5.");
+                    System.out.println("Invalid choice. Please enter a number between 1 and 6.");
             }
         }
         scanner.close();
     }
 
     private static void registerPatient(Scanner scanner) {
-        System.out.println("\n--- Register New Patient ---");
+        System.out.println("\n--- Register Patient ---");
         System.out.print("Enter Patient ID: ");
         String id = scanner.nextLine();
         
-        // Prevent duplicate IDs
         if (queue.searchById(id) != null) {
             System.out.println("Error: A patient with this ID already exists.");
             return;
@@ -73,7 +76,7 @@ public class Main {
         try {
             age = Integer.parseInt(scanner.nextLine());
         } catch (NumberFormatException e) {
-            System.out.println("Invalid age. Registration failed.");
+            System.out.println("Invalid age.");
             return;
         }
 
@@ -83,10 +86,9 @@ public class Main {
         System.out.print("Enter Priority Level (Critical, High, Moderate, Mild, Low): ");
         String priorityStr = scanner.nextLine();
         
-        // Validate priority
         int priorityScore = PriorityUtils.getPriorityScore(priorityStr);
         if (priorityScore == 0) {
-            System.out.println("Invalid priority level. Defaulting to 'Low'.");
+            System.out.println("Invalid priority, defaulting to 'Low'.");
             priorityStr = "Low";
             priorityScore = 1;
         }
@@ -94,60 +96,90 @@ public class Main {
         sequenceCounter++;
         Patient p = new Patient(id, name, age, symptoms, priorityStr, priorityScore, sequenceCounter);
         
-        // Queue handles Enqueue and Sorting automatically
+        // CO2 – Abstract Data Types (ADTs)
+        // Insert operation
         queue.enqueue(p);
 
         System.out.println("Patient registered successfully!");
     }
 
-    private static void viewAllPatients() {
-        System.out.println("\n--- All Patients ---");
+    private static void displayPatients() {
+        System.out.println("\n--- Display All Patients ---");
+        
+        // CO2 – Abstract Data Types (ADTs)
+        // Traverse operation
         List<Patient> list = queue.getAllPatients();
         if (list.isEmpty()) {
-            System.out.println("No patients currently in the queue.");
+            System.out.println("No patients records.");
         } else {
-            printTable(list);
+            System.out.format("%-10s | %-20s | %-5s | %-12s | %-30s\n", "ID", "Name", "Age", "Priority", "Symptoms");
+            System.out.println("-----------------------------------------------------------------------------------------");
+            for (Patient p : list) {
+                System.out.format("%-10s | %-20s | %-5d | %-12s | %-30s\n", 
+                    p.getId(), p.getName(), p.getAge(), p.getPriorityLevel(), p.getSymptoms());
+            }
         }
     }
 
-    private static void serveNextPatient() {
+    private static void servePatient() {
         System.out.println("\n--- Serve Next Patient ---");
+        
+        // CO3 – Stack / Queue Concepts
+        // Priority-based processing
+        // CO4 – Java Collections
+        // Queue behaviour using List operations
         Patient p = queue.dequeue();
+        
         if (p == null) {
             System.out.println("No patients to serve.");
         } else {
-            System.out.println("Serving highest priority Patient:");
+            System.out.println("Serving Patient:");
             System.out.println("ID: " + p.getId());
             System.out.println("Name: " + p.getName());
             System.out.println("Priority: " + p.getPriorityLevel());
             System.out.println("Symptoms: " + p.getSymptoms());
-            System.out.println("Patient successfully served and removed from queue.");
         }
     }
 
     private static void searchPatientById(Scanner scanner) {
         System.out.println("\n--- Search Patient ---");
-        System.out.print("Enter Patient ID to search: ");
+        System.out.print("Enter Patient ID: ");
         String id = scanner.nextLine();
 
+        // CO1 – Algorithm Analysis, Searching and Sorting
+        // Linear Search
         Patient p = queue.searchById(id);
+        
         if (p != null) {
             System.out.println("Patient Found:");
-            System.out.format("%-10s | %-20s | %-5s | %-12s | %-30s\n", "ID", "Name", "Age", "Priority", "Symptoms");
-            System.out.println("-----------------------------------------------------------------------------------------");
-            System.out.format("%-10s | %-20s | %-5d | %-12s | %-30s\n", 
-                p.getId(), p.getName(), p.getAge(), p.getPriorityLevel(), p.getSymptoms());
+            System.out.println("ID: " + p.getId() + ", Name: " + p.getName() + ", Priority: " + p.getPriorityLevel());
         } else {
-            System.out.println("Patient with ID '" + id + "' not found.");
+            System.out.println("Patient not found.");
         }
     }
 
-    private static void printTable(List<Patient> list) {
-        System.out.format("%-10s | %-20s | %-5s | %-12s | %-30s\n", "ID", "Name", "Age", "Priority", "Symptoms");
-        System.out.println("-----------------------------------------------------------------------------------------");
-        for (Patient p : list) {
-            System.out.format("%-10s | %-20s | %-5d | %-12s | %-30s\n", 
-                p.getId(), p.getName(), p.getAge(), p.getPriorityLevel(), p.getSymptoms());
+    private static void deletePatient(Scanner scanner) {
+        System.out.println("\n--- Delete Patient ---");
+        System.out.print("Enter Patient ID to delete: ");
+        String id = scanner.nextLine();
+
+        // CO2 – Abstract Data Types (ADTs)
+        // Delete operation
+        boolean removed = queue.deleteById(id);
+        
+        if (removed) {
+            System.out.println("Patient deleted successfully.");
+        } else {
+            System.out.println("Patient not found.");
         }
     }
 }
+
+/*
+CO ATTAINMENT SUMMARY
+
+CO1 – Algorithm Analysis, Searching and Sorting
+CO2 – Abstract Data Types (ADTs)
+CO3 – Stack / Queue Concepts
+CO4 – Java Collections
+*/

@@ -2,34 +2,46 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PatientQueue {
-    // DSA Concept: Array / List (Using ArrayList to store queue elements)
+    
+    // CO2 – Abstract Data Types (ADTs)
+    // ArrayList to store patient records
+    // CO4 – Java Collections
+    // List (ArrayList)
     private List<Patient> queue;
 
     public PatientQueue() {
         queue = new ArrayList<>();
     }
 
-    // DSA Concept: Queue (Enqueue operation using ArrayList add)
+    // CO2 – Abstract Data Types (ADTs)
+    // Insert operation
     public void enqueue(Patient p) {
         queue.add(p);
-        // Ensure the queue is sorted so that highest priority comes first
         PriorityUtils.sortPatients(queue);
     }
 
-    // DSA Concept: Queue (Dequeue operation retrieving and removing the first element)
+    // CO3 – Stack / Queue Concepts
+    // Queue behaviour for serving patients
+    // Dequeue operation
+    // CO4 – Java Collections
+    // Queue behaviour using List operations
     public Patient dequeue() {
         if (queue.isEmpty()) {
             return null;
         }
-        // Serve the highest priority which is at index 0 after sorting
         return queue.remove(0); 
     }
 
+    // CO2 – Abstract Data Types (ADTs)
+    // Traverse operation
     public List<Patient> getAllPatients() {
         return queue;
     }
 
-    // DSA Concept: Searching (Linear Search through the ArrayList)
+    // CO1 – Algorithm Analysis, Searching and Sorting
+    // Linear Search
+    // CO2 – Abstract Data Types (ADTs)
+    // Search operation
     public Patient searchById(String id) {
         for (Patient p : queue) {
             if (p.getId().equalsIgnoreCase(id)) {
@@ -39,7 +51,28 @@ public class PatientQueue {
         return null;
     }
     
+    // CO2 – Abstract Data Types (ADTs)
+    // Delete operation
+    public boolean deleteById(String id) {
+        for (int i = 0; i < queue.size(); i++) {
+            if (queue.get(i).getId().equalsIgnoreCase(id)) {
+                queue.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean isEmpty() {
         return queue.isEmpty();
     }
 }
+
+/*
+CO ATTAINMENT SUMMARY
+
+CO1 – Algorithm Analysis, Searching and Sorting
+CO2 – Abstract Data Types (ADTs)
+CO3 – Stack / Queue Concepts
+CO4 – Java Collections
+*/

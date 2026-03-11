@@ -3,7 +3,6 @@ import java.util.List;
 public class PriorityUtils {
     
     public static int getPriorityScore(String priorityLevel) {
-        // Higher score corresponds to higher priority
         switch(priorityLevel.toUpperCase()) {
             case "CRITICAL": return 5;
             case "HIGH": return 4;
@@ -14,7 +13,8 @@ public class PriorityUtils {
         }
     }
 
-    // DSA Concept: Sorting (Using Bubble Sort to arrange patients by descending priority)
+    // CO1 – Algorithm Analysis, Searching and Sorting
+    // Sorting algorithm to arrange patients by priority
     public static void sortPatients(List<Patient> patients) {
         int n = patients.size();
         for (int i = 0; i < n - 1; i++) {
@@ -22,16 +22,12 @@ public class PriorityUtils {
                 Patient p1 = patients.get(j);
                 Patient p2 = patients.get(j + 1);
                 
-                // Compare by priority score (descending order)
                 if (p1.getPriorityScore() < p2.getPriorityScore()) {
-                    // Swap
                     patients.set(j, p2);
                     patients.set(j + 1, p1);
                 } 
-                // If priorities are equal, maintain FIFO based on arrival sequence
                 else if (p1.getPriorityScore() == p2.getPriorityScore()) {
                     if (p1.getArrivalSequence() > p2.getArrivalSequence()) {
-                        // Swap
                         patients.set(j, p2);
                         patients.set(j + 1, p1);
                     }
@@ -40,3 +36,12 @@ public class PriorityUtils {
         }
     }
 }
+
+/*
+CO ATTAINMENT SUMMARY
+
+CO1 – Algorithm Analysis, Searching and Sorting
+CO2 – Abstract Data Types (ADTs)
+CO3 – Stack / Queue Concepts
+CO4 – Java Collections
+*/

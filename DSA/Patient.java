@@ -25,3 +25,12 @@ public class Patient {
     public int getPriorityScore() { return priorityScore; }
     public long getArrivalSequence() { return arrivalSequence; }
 }
+
+/*
+CO ATTAINMENT SUMMARY
+
+CO1 – Algorithm Analysis, Searching and Sorting
+CO2 – Abstract Data Types (ADTs)
+CO3 – Stack / Queue Concepts
+CO4 – Java Collections
+*/
